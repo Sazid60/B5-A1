@@ -104,5 +104,87 @@ function processValue(value: string | number): number {
   }
 }
 
-console.log(processValue("hello")); // Output: 5
-console.log(processValue(10)); // Output: 20
+// console.log(processValue("hello")); // Output: 5
+// console.log(processValue(10)); // Output: 20
+
+// Problem 6:
+// Description: Define an interface Product and create a function to find the product with the highest price in an array. If the array is empty, return null.
+
+// Interface & Function Signature:
+
+interface Product {
+  name: string;
+  price: number;
+}
+
+function getMostExpensiveProduct(products: Product[]): Product | null {
+  if (products.length === 0) return null;
+  let highestPricedProduct = products[0];
+
+  products.forEach((product) => {
+    if (product.price > highestPricedProduct.price) {
+      highestPricedProduct = product;
+    }
+  });
+  return highestPricedProduct;
+}
+
+// const products = [
+//   { name: "Pen", price: 0 },
+//   { name: "Notebook", price: 25 },
+//   { name: "Bag", price: 50 },
+// ];
+
+// console.log(getMostExpensiveProduct(products));
+// // Output: { name: "Bag", price: 50 }
+
+// Problem 7:
+// Description:
+
+// Define an enum Day for the days of the week.
+// Create a function that returns "Weekday" or "Weekend" based on the input day.
+// Enum & Function Signature:
+
+enum Day {
+  Monday,
+  Tuesday,
+  Wednesday,
+  Thursday,
+  Friday,
+  Saturday,
+  Sunday,
+}
+
+function getDayType(day: Day): string {
+  if (day === Day.Saturday || day === Day.Sunday) {
+    return "Weekend";
+  } else {
+    return "Weekday";
+  }
+}
+
+// console.log(getDayType(Day.Monday)); // Output: "Weekday"
+// console.log(getDayType(Day.Sunday)); // Output: "Weekend"
+
+// Problem 8:
+// Description: Create an async function that:
+
+// Returns the square of a number after 1 second
+// Rejects if the number is negative
+// Function Signature:
+
+async function squareAsync(n: number): Promise<number> {
+  return new Promise((resolve, reject) => {
+    if (n >= 0) {
+      const squareNum = n * n;
+      setTimeout(() => {
+        resolve(squareNum);
+      }, 1000);
+    } else if (n < 0) {
+      reject("Error: Negative number not allowed");
+    }
+  });
+}
+
+squareAsync(4).then(console.log); // Output after 1s: 16
+squareAsync(-3).catch(console.error); // Output: Error: Negative number not allowed
