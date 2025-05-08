@@ -1,6 +1,6 @@
 # 4. Provide an example of using union and intersection types in TypeScript.
 
-## Blog-Title: Understanding the use case of union and intersection types in Typescript.
+#### Blog-Title: Understanding the use case of union and intersection types in Typescript.
 
 ##### What is Union Type?
 
