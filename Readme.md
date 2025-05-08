@@ -84,9 +84,8 @@ showError("I am Error")
 
 Lets see difference between all of them together.
 
-| Keys           | `any`                         | `unknown`                                                                                         | `never`                              |
-| -------------- | ----------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------ |
-| **Definition** | Do not check any kind of type | Initially we do not know what will be the type but after sometime we will know the type in future | Represents values that never occur   |
-| **Usage**      | Type is not a factor here     | Receives any type but inside the function type narrowing is done                                  | When Function have nothing to return |
-
-| **Safety Factor** | Its Totally not safe to use except necessary situation | Its safe since inside function type narrowing is done | Its also safe since it works in return type |
+| Keys              | any                                                    | unknown                                                                                           | never                                       |
+| ----------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| **Definition**    | Do not check any kind of type                          | Initially we do not know what will be the type but after sometime we will know the type in future | Represents values that never occur          |
+| **Usage**         | Type is not a factor here                              | Receives any type but inside the function type narrowing is done                                  | When Function have nothing to return        |
+| **Safety Factor** | Its Totally not safe to use except necessary situation | Its safe since inside function type narrowing is done                                             | Its also safe since it works in return type |
