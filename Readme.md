@@ -1,4 +1,112 @@
-### 3. Explain the difference between any, unknown, and never types in TypeScript.
+# 4. Provide an example of using union and intersection types in TypeScript.
+
+## Blog-Title: Understanding the use case of union and intersection types in Typescript.
+
+##### What is Union Type?
+
+- Union means it can it can hold multiple types. Suppose we have multiple types and we have to choose one of them. If any of the type matches we are good to go. Union is written using "|". Its almost similar to javascript "||" operator.
+-
+
+```ts
+type Type1 = {
+    status = "Done";
+}
+type Type2 = {
+    status = "Running";
+}
+type Type3 = {
+    status = "Pending";
+}
+
+type UnionTypes = Type1 | Type2 | Type3
+
+
+
+const process1 : UnionTypes  = { status: "Done" };
+const process3 : UnionTypes = { status: "Pending" };
+
+```
+
+- Here "UnionTypes" is taking all the types and making union of the types and allowing the variable to satisfy one of them.
+
+##### What is Intersection Type?
+
+- Intersection type means it takes different type and create a single type and tells all the intersection types should be followed. This means the assigned variable must have all the properties of the types that are intersected.
+-
+
+```ts
+type PhoneInfo = { brand: string; quantity: number };
+type Status = { new: boolean };
+
+type Phone = PhoneInfo & Status;
+
+const availablePhone: Phone = {
+  brand: "Apple",
+  quantity: 10,
+  new: false,
+};
+```
+
+- This taking the PhoneInfo Tye and Status type and making the availablePhone variable to follow the rules that it should have all the properties mentioned in the two type.
+
+##### Example of combined Intersection and Union Type
+
+- Lets Make Fusion of Intersection and Union Type
+
+```ts
+type Person = {
+  id: number;
+  name: string;
+  age: number;
+};
+
+type Student = {
+  role: "student";
+  class: string;
+  subject: string;
+  studies: number;
+};
+
+type Teacher = {
+  role: "teacher";
+  department: string;
+  takesClass: number;
+};
+
+// union
+type Role = Student | Teacher;
+
+// intersection
+type User = Person & Role;
+
+const user1: User = {
+  id: 1,
+  name: "Sazid",
+  age: 20,
+  role: "student",
+  class: "10",
+  subject: "Math",
+  studies: 5,
+};
+
+const user2: User = {
+  id: 2,
+  name: "Mr. Mazid",
+  age: 40,
+  role: "teacher",
+  department: "Science",
+  takesClass: 3,
+};
+```
+
+##### Now lets decode this Line by line.
+
+- Person, Teacher, Student are individual type here.
+- The Role type is ensuring that the role might be Student Or Teacher Type by using Union Type.
+- The User Type Ensures that Person Type and Role Type Must be maintained.
+- A user can be Teacher or Student But User must satisfy Person Type.
+
+# 3. Explain the difference between any, unknown, and never types in TypeScript.
 
 #### Blog-Title: TypeScript Deep Dive: Understanding the Differences Between any, unknown, and never
 
